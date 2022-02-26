@@ -21,7 +21,7 @@
     }
   }
 
-  function initAction(){
+  /*function initAction(){
     const favoriteBooks = [];
     
     const booksImages = document.querySelectorAll(select.containerOf.images);
@@ -40,11 +40,31 @@
         }
         console.log(favoriteBooks);
       });
-    } 
+    } */
+
+  function initAction(){
+    const favoriteBooks = [];
+    const booksList = document.querySelector(select.containerOf.booksList);
+    booksList.addEventListener('dblclick', function(event){
+      event.preventDefault();
+      const book = event.target.offsetParent;
+      
+      if(book.classList.contains('book__image')){
+        book.classList.toggle('favorite');
+        const bookId = book.getAttribute('data-id');
+        if(!favoriteBooks.includes(bookId)){
+          favoriteBooks.push(bookId);
+        } else {
+          favoriteBooks.pop(favoriteBooks);
+        }
+        console.log(favoriteBooks);
+      }
+    });
+  }
       
     
    
-  }
+  
 
   render();
   initAction();
