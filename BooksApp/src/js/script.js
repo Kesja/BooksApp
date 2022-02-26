@@ -33,10 +33,10 @@
         image.classList.toggle('favorite');
        
         const bookId = image.getAttribute('data-id');
-        if(!favoriteBooks.includes('bookId')){
+        if(!favoriteBooks.includes(bookId)){
           favoriteBooks.push(bookId);
         } else {
-          favoriteBooks.splice(favoriteBooks, 1);
+          favoriteBooks.pop(favoriteBooks);
         }
         console.log(favoriteBooks);
       });
