@@ -43,7 +43,7 @@
     } */
 
   function initAction(){
-    const favoriteBooks = [];
+    let favoriteBooks = [];
     const booksList = document.querySelector(select.containerOf.booksList);
     booksList.addEventListener('dblclick', function(event){
       event.preventDefault();
@@ -55,16 +55,14 @@
         if(!favoriteBooks.includes(bookId)){
           favoriteBooks.push(bookId);
         } else {
-          favoriteBooks.pop(favoriteBooks);
+          favoriteBooks = favoriteBooks.filter(function(item){
+            return item !== bookId;
+          });
         }
-        console.log(favoriteBooks);
+        console.log('Fav',favoriteBooks);
       }
     });
   }
-      
-    
-   
-  
 
   render();
   initAction();
